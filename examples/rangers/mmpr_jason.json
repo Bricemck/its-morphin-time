@@ -1,0 +1,14 @@
+{
+    "rangerID":1,
+    "name": "jason",
+    "fullName": "jason lee scott",
+    "zord": ["tyrannosaurus dinozord","red dragon thunderzord"],
+    "gender": "male",
+    "season": "mighty morphin",
+    "color": "blue",
+    "homeworld": "earth",
+    "firstAp": "day of the dumpster",
+    "lastAp": "legendary battle",
+    "numberOfAp": 108,
+    "actor": "austin st john"
+}
