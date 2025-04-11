@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const rangerSchema = mongoose.Schema({
     rangerID: { type: Number, required: true},
     name: { type: String, required: true },
