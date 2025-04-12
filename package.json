@@ -21,37 +21,16 @@
   "description": "",
 
   "dependencies": {
-<<<<<<< HEAD
 
     "cors": "^2.8.5",
 
     "dotenv": "^16.4.7",
 
-=======
-    "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
->>>>>>> 8973a5cfa801eb9c4b7dc6ffd24858d537f8d447
     "express": "^5.1.0",
 
     "mongoose": "^8.13.2"
-<<<<<<< HEAD
 
   }
 
 }
 
-=======
-  },
-  "directories": {
-    "example": "examples"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Bricemck/its-morphin-time.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Bricemck/its-morphin-time/issues"
-  },
-  "homepage": "https://github.com/Bricemck/its-morphin-time#readme"
-}
->>>>>>> 8973a5cfa801eb9c4b7dc6ffd24858d537f8d447
