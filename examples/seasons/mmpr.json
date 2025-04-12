@@ -6,5 +6,7 @@
     "numberOfEpisodes": 142,
     "firstEpisode": "Day of the Dumpster",
     "lastEpisode": "Rangers in Reverse",
-    "producer": "Saban"    
+    "theme": "Test",
+    "producer": "Saban",    
+    "rangers": "Jason, Zack, Trini, Kimberly, Billy, Tommy"
 }
