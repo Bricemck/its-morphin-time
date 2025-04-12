@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const app = express();
 const rangerRoutes = require('./routes/rangerRoutes.js');
 const megazordRoutes = require('./routes/megazordRoutes');
+const cors = require('cors');
+app.use(cors());
 
 mongoose.connect(process.env.MONGODB_URI);
 
