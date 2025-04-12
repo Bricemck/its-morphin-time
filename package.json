@@ -4,8 +4,6 @@
 
   "version": "1.0.0",
 
-  "description": "",
-
   "main": "server.js",
 
   "scripts": {
@@ -19,6 +17,13 @@
   "keywords": [],
 
   "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "mongoose": "^8.13.2"
+  }
 
   "directories": {
 
