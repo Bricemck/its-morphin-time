@@ -1,20 +1,46 @@
 {
   "name": "unit-3-project",
+
   "version": "1.0.0",
+
   "main": "server.js",
   "scripts": {
+
     "test": "echo \"Error: no test specified\" && exit 1",
+
     "start": "node server.js"
+
   },
+
   "keywords": [],
+
   "author": "",
+
   "license": "ISC",
+
   "description": "",
+
   "dependencies": {
+<<<<<<< HEAD
+
+    "cors": "^2.8.5",
+
+    "dotenv": "^16.4.7",
+
+=======
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
+>>>>>>> 8973a5cfa801eb9c4b7dc6ffd24858d537f8d447
     "express": "^5.1.0",
+
     "mongoose": "^8.13.2"
+<<<<<<< HEAD
+
+  }
+
+}
+
+=======
   },
   "directories": {
     "example": "examples"
@@ -28,3 +54,4 @@
   },
   "homepage": "https://github.com/Bricemck/its-morphin-time#readme"
 }
+>>>>>>> 8973a5cfa801eb9c4b7dc6ffd24858d537f8d447
