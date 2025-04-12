@@ -1,0 +1,7 @@
+{
+    "name": "Mighty Morphin Megazord",
+    "pictureLink": "https://example.com/mighty-morphin-megazord.jpg",
+    "pilotedBy": ["Jason", "Zack", "Trini", "Kimberly", "Billy"],
+    "firstAppearedInSeason": "Season 1",
+    "combinedMegazord": "MegaDragonzord"
+  }
