@@ -2,10 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Megazord = require('../models/megazord');  // Import the Megazord model
 
-// GET all megazords
+// GET all megazords with populated references
 router.get('/', async (req, res) => {
   try {
-    const allMegazords = await Megazord.find();
+    const allMegazords = await Megazord.find()
+      .populate('pilotedBy')
+      .populate('firstAppearedInSeason');
+      
     res.json(allMegazords);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -15,7 +18,10 @@ router.get('/', async (req, res) => {
 // GET one megazord by ID
 router.get('/:id', async (req, res) => {
   try {
-    const megazord = await Megazord.findById(req.params.id);
+    const megazord = await Megazord.findById(req.params.id)
+      .populate('pilotedBy')
+      .populate('firstAppearedInSeason');
+      
     if (!megazord) return res.status(404).json({ error: 'Megazord not found' });
     res.json(megazord);
   } catch (err) {
