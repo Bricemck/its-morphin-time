@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const rangerRoutes = require('./routes/rangerRoutes.js');
+const megazordRoutes = require('./routes/megazordRoutes');
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -19,7 +20,7 @@ app.use(express.json());
 
 // Routes go here
 app.use('/rangers', rangerRoutes);
-
+app.use('/megazords', megazordRoutes);
 
 app.listen(3000, () => {
   console.log('The express app is ready!');
