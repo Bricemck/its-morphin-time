@@ -52,4 +52,14 @@ router.put('/:seasonId', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const season = await Seasons.findById(req.params.id);
+    if (!season) return res.status(404).json({ error: 'Season not found' });
+    res.json(season);
+  } catch (err) {
+    res.status(400).json({ error: 'Invalid ID' });
+  }
+});
+
 module.exports = router;
