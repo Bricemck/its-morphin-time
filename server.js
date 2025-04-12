@@ -7,8 +7,13 @@ const rangerRoutes = require('./routes/rangerRoutes.js');
 const megazordRoutes = require('./routes/megazordRoutes');
 const Season = require('./models/season.js');
 
+const cors = require('cors');
+app.use(cors());
+
+
 
 mongoose.connect(process.env.MONGODB_URI);
+process.env.MONGODB_URI
 
 mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
@@ -21,8 +26,6 @@ mongoose.connection.on('error', (err) => {
 app.use(express.json());
 
 // Routes go here
-app.use('/rangers', rangerRoutes);
-app.use('/megazords', megazordRoutes);
 
 
 app.post('/seasons', async (req, res) => {
