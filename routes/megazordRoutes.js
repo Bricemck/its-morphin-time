@@ -1,21 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const Megazord = require('../models/megazord');  // Import the Megazord model
+const Megazord = require('../models/megazord');
 
-// GET all megazords
+// GET all megazords with populated references
 router.get('/', async (req, res) => {
   try {
-    const allMegazords = await Megazord.find();
-    res.json(allMegazords);
+    const megazords = await Megazord.find().populate('pilotedBy').populate('firstAppearedInSeason')
+      .populate('pilotedBy')
+      .populate('firstAppearedInSeason');
+    res.json(megazords);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// GET one megazord by ID
+// GET a single megazord by ID with populated references
 router.get('/:id', async (req, res) => {
   try {
-    const megazord = await Megazord.findById(req.params.id);
+    const megazord = await Megazord.findById(req.params.id).populate('pilotedBy').populate('firstAppearedInSeason')
+      .populate('pilotedBy')
+      .populate('firstAppearedInSeason');
     if (!megazord) return res.status(404).json({ error: 'Megazord not found' });
     res.json(megazord);
   } catch (err) {
@@ -26,37 +30,12 @@ router.get('/:id', async (req, res) => {
 // CREATE a megazord
 router.post('/', async (req, res) => {
   try {
-    const createdMegazord = await Megazord.create(req.body);
-    res.status(201).json(createdMegazord);
+    const newMegazord = await Megazord.create(req.body);
+    res.status(201).json(newMegazord);
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
 });
 
-// UPDATE a megazord
-router.put('/:id', async (req, res) => {
-  try {
-    const updatedMegazord = await Megazord.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true, runValidators: true }
-    );
-    if (!updatedMegazord) return res.status(404).json({ error: 'Megazord not found' });
-    res.json(updatedMegazord);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-});
-
-// DELETE a megazord
-router.delete('/:id', async (req, res) => {
-  try {
-    const deletedMegazord = await Megazord.findByIdAndDelete(req.params.id);
-    if (!deletedMegazord) return res.status(404).json({ error: 'Megazord not found' });
-    res.json({ message: 'Megazord deleted successfully' });
-  } catch (err) {
-    res.status(400).json({ error: 'Invalid ID' });
-  }
-});
 
 module.exports = router;

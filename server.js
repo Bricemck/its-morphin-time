@@ -31,29 +31,15 @@ mongoose.connection.on('error', (err) => {
 
 app.use(express.json());
 
-// Routes go here
 
-app.post('/seasons', async (req, res) => {
-  const createdSeason = await Season.create(req.body);
-  res.json(createdSeason)
-});
-
-app.get('/seasons', async (req, res) => {
-  const foundSeason = await Season.find();
-  res.json(foundSeason);
-})
-
-app.delete('/seasons/:seasonId', async (req, res) => {
-  const deletedSeason = await Season.findByIdAndDelete(req.params.seasonId);
-  res.json(deletedSeason);
-})
+// BELOW = added by AJ (Mount route controllers) testing the new rangerRoutes
+app.use('/seasons', seasonsRoutes);
+app.use('/megazords', megazordRoutes);     
+app.use('/rangers', rangerRoutes);
 
 app.listen(3000, () => {
   console.log('The express app is ready!');
 });
-
-
-
 
 // const dotenv = require('dotenv');
 // dotenv.config();

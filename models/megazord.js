@@ -1,7 +1,6 @@
-// models/megazord.js
 const mongoose = require('mongoose');
 
-const megazordSchema = mongoose.Schema({
+const megazordSchema = new mongoose.Schema({
   name: { type: String, required: true },
   pictureLink: { type: String, required: true },
   // Reference to the Ranger model(s)
