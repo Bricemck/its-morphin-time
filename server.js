@@ -31,6 +31,7 @@ mongoose.connection.on('error', (err) => {
 
 app.use(express.json());
 
+
 // BELOW = added by AJ (Mount route controllers) testing the new rangerRoutes
 app.use('/seasons', seasonsRoutes);
 app.use('/megazords', megazordRoutes);     
@@ -39,9 +40,6 @@ app.use('/rangers', rangerRoutes);
 app.listen(3000, () => {
   console.log('The express app is ready!');
 });
-
-
-
 
 // const dotenv = require('dotenv');
 // dotenv.config();
