@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
 // Get all seasons
 router.get('/', async (req, res) => {
   try {
-    const foundSeasons = await Season.find();
+    const foundSeasons = await Season.find().populate('rangers')
     res.json(foundSeasons);
   } catch (err) {
     res.status(500).json({ error: err.message });

@@ -5,7 +5,7 @@ const Megazord = require('../models/megazord');
 // GET all megazords with populated references
 router.get('/', async (req, res) => {
   try {
-    const megazords = await Megazord.find()
+    const megazords = await Megazord.find().populate('pilotedBy').populate('firstAppearedInSeason')
       .populate('pilotedBy')
       .populate('firstAppearedInSeason');
     res.json(megazords);
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 // GET a single megazord by ID with populated references
 router.get('/:id', async (req, res) => {
   try {
-    const megazord = await Megazord.findById(req.params.id)
+    const megazord = await Megazord.findById(req.params.id).populate('pilotedBy').populate('firstAppearedInSeason')
       .populate('pilotedBy')
       .populate('firstAppearedInSeason');
     if (!megazord) return res.status(404).json({ error: 'Megazord not found' });
@@ -37,16 +37,5 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
-  try {
-    const megazord = await Megazord.findById(req.params.id)
-      .populate('pilotedBy')
-      .populate('firstAppearedInSeason');
-    if (!megazord) return res.status(404).json({ error: 'Megazord not found' });
-    res.json(megazord);
-  } catch (err) {
-    res.status(400).json({ error: 'Invalid ID' });
-  }
-});
 
 module.exports = router;
