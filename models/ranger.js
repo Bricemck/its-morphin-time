@@ -15,6 +15,7 @@ const rangerSchema = new mongoose.Schema({
   lastAp: { type: String, required: true },
   numberOfAp: { type: Number, required: true },
   actor: { type: String, required: true },
+  img: { type: String, required: false },
   // Reference to the Megazord model that this ranger pilots
   megazordPiloted: { type: mongoose.Schema.Types.ObjectId, ref: 'Megazord',required:false}
 });
