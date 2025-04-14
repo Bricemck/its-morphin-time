@@ -25,7 +25,9 @@ router.get('/', async (req, res) => {
 // Get a single season by ID
 router.get('/:id', async (req, res) => {
   try {
-    const season = await Season.findById(req.params.id).populate('rangers');
+    const season = await Season.findById(req.params.id)
+    .populate('rangers','name')
+    .populate('magozord','name');
     if (!season) return res.status(404).json({ error: 'Season not found' });
     res.json(season);
   } catch (err) {

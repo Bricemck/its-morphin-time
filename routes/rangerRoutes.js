@@ -5,23 +5,14 @@ const Ranger = require('../models/ranger');
 // GET all rangers (with populated season)
 router.get('/', async (req, res) => {
   try {
-    const allRangers = await Ranger.find().populate('season');
+    const allRangers = await Ranger.find()
     res.json(allRangers);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// GET a single ranger by ID (with populated season)
-router.get('/:id', async (req, res) => {
-  try {
-    const ranger = await Ranger.findById(req.params.id).populate('season');
-    if (!ranger) return res.status(404).json({ error: 'Ranger not found' });
-    res.json(ranger);
-  } catch (err) {
-    res.status(400).json({ error: 'Invalid ID' });
-  }
-});
+
 
 // CREATE a ranger
 router.post('/', async (req, res) => {
@@ -32,6 +23,17 @@ router.post('/', async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
+
+router.get('/:id', async (req, res) => {
+  try {
+    const ranger = await Ranger.findById(req.params.id).populate('season','name')
+    if (!ranger) return res.status(404).json({ error: 'Ranger not found' });
+    res.json(ranger);
+  } catch (err) {
+    res.status(400).json({ error: 'Invalid ID' });
+  }
+});
+
 
 // UPDATE a ranger
 router.put('/:id', async (req, res) => {

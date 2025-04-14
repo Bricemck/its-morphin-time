@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const rangerSchema = new mongoose.Schema({
   rangerID: { type: Number, required: true },
   name: { type: String, required: true },
@@ -13,7 +14,9 @@ const rangerSchema = new mongoose.Schema({
   firstAp: { type: String, required: true },
   lastAp: { type: String, required: true },
   numberOfAp: { type: Number, required: true },
-  actor: { type: String, required: true }
+  actor: { type: String, required: true },
+  // Reference to the Megazord model that this ranger pilots
+  megazordPiloted: { type: mongoose.Schema.Types.ObjectId, ref: 'Megazord',required:false}
 });
 
 const Ranger = mongoose.model("Ranger", rangerSchema);
