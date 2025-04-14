@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    const updatedMagazord = await Magazord.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+    const updatedMagazord = await Megazord.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
     if (!updatedMagazord) return res.status(404).json({ error: 'Ranger not found' });
     res.json(updatedMagazord);
   } catch (err) {
