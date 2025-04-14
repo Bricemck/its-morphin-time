@@ -20,8 +20,6 @@
 
   "description": "",
 
-  "dependencies": {
-
 
     "cors": "^2.8.5",
 
@@ -32,7 +30,5 @@
     "mongoose": "^8.13.2"
 
   }
-
-}
 
 
