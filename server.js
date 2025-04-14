@@ -4,6 +4,7 @@ dotenv.config();
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+app.use(express.static('public'))
 
 const rangerRoutes = require('./routes/rangerRoutes');
 const megazordRoutes = require('./routes/megazordRoutes');
