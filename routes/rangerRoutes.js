@@ -5,7 +5,7 @@ const Ranger = require('../models/ranger');
 // GET all rangers (with populated season)
 router.get('/', async (req, res) => {
   try {
-    const allRangers = await Ranger.find()
+    const allRangers = await Ranger.find().sort({name:1})
     res.json(allRangers);
   } catch (err) {
     res.status(500).json({ error: err.message });
