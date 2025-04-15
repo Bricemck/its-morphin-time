@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const updatedMegazord = await Megazord.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
-    if (!updatedMegazord) return res.status(404).json({ error: 'Ranger not found' });
+    if (!updatedMegazord) return res.status(404).json({ error: 'Megazord not found' });
     res.json(updatedMegazord);
   } catch (err) {
     res.status(400).json({ error: err.message });
@@ -31,8 +31,8 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     console.log("Attempting to delete Megazord with ID:", req.params.id);
-    const deletedMagazord = await Megazord.findByIdAndDelete(req.params.id);
-    if (!deletedMagazord) return res.status(404).json({ error: 'Ranger not found' });
+    const deletedMegazord = await Megazord.findByIdAndDelete(req.params.id);
+    if (!deletedMegazord) return res.status(404).json({ error: 'Ranger not found' });
     res.json({ message: 'Ranger deleted successfully' });
   } catch (err) {
     console.error("Error during deletion:", err);
