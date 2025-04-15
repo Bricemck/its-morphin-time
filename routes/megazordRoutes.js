@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Megazord = require('../models/megazord');
-
 // GET all megazords with populated references
 router.get('/', async (req, res) => {
   try {
@@ -11,8 +10,6 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
-
 // CREATE a megazord
 router.post('/', async (req, res) => {
   try {
@@ -22,9 +19,6 @@ router.post('/', async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
-
-
-
 router.put('/:id', async (req, res) => {
   try {
     const updatedMegazord = await Megazord.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
@@ -34,7 +28,6 @@ router.put('/:id', async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
-
 router.delete('/:id', async (req, res) => {
   try {
     console.log("Attempting to delete Megazord with ID:", req.params.id);
@@ -46,8 +39,6 @@ router.delete('/:id', async (req, res) => {
     res.status(400).json({ error: 'Invalid ID' });
   }
 });
-
-
 // GET a single megazord by ID with populated references
 router.get('/:id', async (req, res) => {
   try {
@@ -60,6 +51,4 @@ router.get('/:id', async (req, res) => {
     res.status(400).json({ error: 'Invalid ID' });
   }
 });
-
-
 module.exports = router;
