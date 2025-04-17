@@ -15,14 +15,7 @@ router.get('/', async (req, res) => {
 
 
 // CREATE a ranger
-router.post('/', async (req, res) => {
-  try {
-    const createdRanger = await Ranger.create(req.body);
-    res.status(201).json(createdRanger);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-});
+
 
 router.get('/:id', async (req, res) => {
   try {
@@ -45,6 +38,13 @@ router.put('/:id', async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
+
+router.post('/', async (req, res) => {
+  const nextId = await Ranger.countDocuments() + 1;
+  const created = await Ranger.create({ ...req.body, rangerID: nextId });
+  res.status(201).json(created);
+});
+
 
 // DELETE a ranger
 router.delete('/:id', async (req, res) => {
