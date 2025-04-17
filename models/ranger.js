@@ -8,7 +8,7 @@ const rangerSchema = new mongoose.Schema({
   zord: { type: [String], required: true },
   gender: { type: String, required: true },
   // Reference to the Season model
-  season: { type: mongoose.Schema.Types.ObjectId, ref: 'Season', required: true },
+  season: { type: mongoose.Schema.Types.ObjectId, ref: 'Season', required: false},
   color: { type: String, required: true },
   homeworld: { type: String, required: true },
   firstAp: { type: String, required: true },
